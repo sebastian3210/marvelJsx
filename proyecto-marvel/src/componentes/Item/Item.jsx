@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 
 
@@ -19,7 +20,7 @@ function Item({producto}) {
                  <h5 className="card-title">{producto.name} </h5>
                      <p className="card-text"> ARS {producto.price} </p>
                      <p className="card-text"><small className="text-muted">stock: {producto.stock}</small></p>
-                     <button type="button" className="btn btn-outline-primary">Detalle del producto</button>
+                     <Link to={`/detail/${producto.id} `}> <button type="button" className="btn btn-outline-primary">Product detail</button></Link>
               </div>
             </div>
           </div>
