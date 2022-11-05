@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useCartContext } from '../../cartContext/cartContext'
+import InputCount from '../inputCount/InputCount'
+import ItemCount from '../ItemCount/itemCount'
 
 function ItemDetail({productos}) {
+  const [isCount, setIsCount]= useState(true)
 
+  const{addItem, cartlist} = useCartContext()
+  const onAdd = (amount) =>{
+    console.log('onAdd', amount)
+    addItem({...productos, amount})
+    setIsCount(false)
+  }
+
+  console.log(cartlist)
 
 
   
@@ -19,6 +31,16 @@ function ItemDetail({productos}) {
                  <h5 className="card-title">{productos.name} </h5>
                      <p className="card-text"> ARS {productos.price} </p>
                      <p className="card-text"><small className="text-muted">stock: {productos.stock}</small></p>
+                     {
+                      isCount ?
+                      <ItemCount onAdd={onAdd} stock={productos.stock} init={1} />
+                      :
+                      <InputCount/>
+
+                     }
+                     
+                     
+
                      
               </div>
             </div>
@@ -30,3 +52,5 @@ function ItemDetail({productos}) {
 }
 
 export default ItemDetail
+
+//

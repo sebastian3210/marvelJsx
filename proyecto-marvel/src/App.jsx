@@ -8,6 +8,8 @@ import ItemListConteiner from './componentes/Pages/ItemListConteiner/ItemListCon
 import Title from './componentes/Title/Title'
 import ItemDetailConteiner from './componentes/Pages/ItemDetailConteiner/ItemDetailConteiner'
 import CartPage from './componentes/Pages/CartPages/CartPage'
+import CartContextProvider from './cartContext/cartContext'
+
 
 
 
@@ -15,6 +17,7 @@ import CartPage from './componentes/Pages/CartPages/CartPage'
 function App() {
 
   return (
+  <CartContextProvider>
     <BrowserRouter>
        <NavBar/>        
        <Title title={'Clearence week Marvel'} />
@@ -28,6 +31,7 @@ function App() {
        </Routes>
 
     </BrowserRouter>
+  </CartContextProvider>
   )
 }
 

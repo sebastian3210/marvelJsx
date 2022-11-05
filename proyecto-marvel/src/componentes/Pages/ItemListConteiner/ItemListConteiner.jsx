@@ -3,6 +3,7 @@ import {collection, getDocs, getFirestore, query, where} from 'firebase/firestor
 
 import ItemList from '../../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
+import LoadingPage from '../../Loading/Loading'
 
 
 
@@ -39,10 +40,12 @@ function ItemListConteiner() {
       
   }, [idCategory])
 
+
+
   return (
     <div className='row  d-flex justify-content-center'>
         {Loading ? 
-        <h2>Cargando...</h2>
+        <LoadingPage/>
         : 
         <ItemList productos={productos}/>
         }

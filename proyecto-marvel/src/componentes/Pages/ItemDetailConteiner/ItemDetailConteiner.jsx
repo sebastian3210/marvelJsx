@@ -3,6 +3,7 @@ import { getDoc, getFirestore, doc } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from '../../ItemDetail/ItemDetail'
+import LoadingPage from '../../Loading/Loading'
 
 
 
@@ -23,8 +24,19 @@ function ItemDetailConteiner() {
 
 
   return (
-    <div>
-      <ItemDetail productos={productos} />
+    <div className='row'>
+      {
+        Loading ?
+        <LoadingPage/>
+        :
+        <ItemDetail productos={productos}/>
+
+      }
+       
+        
+       
+       
+            
     </div>
   )
 }
