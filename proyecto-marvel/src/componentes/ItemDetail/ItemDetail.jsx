@@ -21,10 +21,10 @@ function ItemDetail({productos}) {
     <div>
       <h2>Book now and we ship it today!!</h2>
         <div className="col-sm-12 mb-2 col-md-4" key={productos.id}> 
-         <div className="card">
+         <div className="card border border-5">
            <div className="row g-0">
               <div className="col-5 col-sm-4">
-                 <img src={productos.img} className="img-fluid" alt="card-horizontal-image" width="100" height="100" />
+                 <img src={productos.img} className="img-fluid" alt="card-horizontal-image" />
               </div>
             <div className="col-7 col-sm-8">
               <div className="card-body">

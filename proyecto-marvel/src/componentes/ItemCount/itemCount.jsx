@@ -26,13 +26,14 @@ function ItemCount({stock, init, onAdd}) {
 
 
   return (
-    <div>
-        <button onClick={handleAdd} > +</button>
-        <p>{count} </p>
-        <button onClick={handleRemove} > -</button>
-        <ButtonCount handleOnAdd={handleOnAdd}/>
-
-    </div>
+  <>
+    <div className='m-3 p-3 g-2 d-flex justify-content-evenly'>
+        <button className='m-3' onClick={handleAdd} > +</button>
+        <p className='m-3'>{count} </p>
+        <button className='m-3' onClick={handleRemove} > -</button>
+     </div>
+     <ButtonCount handleOnAdd={handleOnAdd}/>
+  </>  
   )
 }
 

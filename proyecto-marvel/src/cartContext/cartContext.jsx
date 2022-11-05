@@ -12,7 +12,15 @@ const CartContextProvider = ({children}) =>{
     const [cartlist, setCarList] = useState([])
 
     const addItem = (productos) =>{
+        const index = cartlist.findIndex(prod=> prod.id === prod.id)
+    if (index === -1){
         setCarList([...cartlist, productos])
+    } else{
+        cartlist[index].amount += productos.amount
+        setCarList([...cartlist])
+    }
+
+        
     }
     const priceTotaly = () => {
         return cartlist.reduce((acum, productos) => acum + (productos.amount * productos.price) , 0)

@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom"
+import { useCartContext } from "../../cartContext/cartContext"
 import logo from "../img/logo.png"
 import shopCart from '../img/shopping-cart.png'
+import './NavBar.css'
 
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const {amountTotaly} = useCartContext()
   return (
 <nav className="navbar navbar-expand-xl navbar-dark bg-dark">
   <div className="p-2">
@@ -23,11 +26,12 @@ const NavBar = () => {
               <Link to='/category/cap' className="nav-link" href="#">Cap</Link>
             </li>
           </ul>
-          <form className="d-flex">
-             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-             <button className="btn btn-outline-success" type="submit">Search</button>
+          <div className="cart d-flex">
+
+             {amountTotaly() !== 0 && amountTotaly()}
+
              <Link to='/cart'><img src={shopCart} alt="" width="50" height="50" href='#' type='button' /></Link>
-          </form>
+          </div>
         </div>
       </div>
 </nav>
